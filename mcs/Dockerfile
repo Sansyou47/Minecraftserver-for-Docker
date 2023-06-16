@@ -1,0 +1,9 @@
+FROM alpine:latest
+WORKDIR /var
+RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+    echo "@community http://nl.alpinelinux.org/alpine/edge/repositories" >> /etc/apk/repositories && \
+    apk add --no-cache openjdk17 && \
+    apk add --no-cache wget && \
+    wget https://piston-data.mojang.com/v1/objects/84194a2f286ef7c14ed7ce0090dba59902951553/server.jar && \
+    echo eula=true > eula.txt
+CMD java -Xmx2048M -Xms2048M -jar server.jar
