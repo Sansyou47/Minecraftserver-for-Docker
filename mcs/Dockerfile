@@ -1,5 +1,6 @@
 FROM alpine:latest
-WORKDIR /var
+RUN mkdir /var/server20
+WORKDIR /var/server20
 RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     echo "@community http://nl.alpinelinux.org/alpine/edge/repositories" >> /etc/apk/repositories && \
     apk add --no-cache openjdk17 && \

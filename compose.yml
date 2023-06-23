@@ -1,13 +1,9 @@
-volumes:
-  mcs20:
-
-
 services:
   mcserver:
     build: mcs
     container_name: mcs20
     volumes:
-      - mcs20:/var
+      - ./mcsdata:/var/server20
     ports:
       - 25565:25565
     tty: true
