@@ -1,10 +1,12 @@
 services:
   mcserver:
     build: mcs
-    container_name: mcs20
+    container_name: MinecraftServer_v1.20.2
     volumes:
-      - ./mcsdata:/var/server20
+      - world_data:/work
     ports:
       - 25565:25565
     tty: true
     stdin_open: true
+volumes:
+  world_data:
