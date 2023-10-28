@@ -8,5 +8,6 @@ services:
       - 25565:25565
     tty: true
     stdin_open: true
+    restart: always
 volumes:
   world_data:
