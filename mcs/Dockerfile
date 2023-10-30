@@ -6,6 +6,6 @@ RUN apk add --no-cache wget && \
 
 FROM alpine
 WORKDIR /work
-COPY --from=builder ./work /work
+COPY --from=builder ./work .
 RUN apk add --no-cache openjdk17
 CMD java -Xmx2048M -Xms2048M -jar server.jar
