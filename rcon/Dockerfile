@@ -2,7 +2,6 @@ FROM alpine as builder
 WORKDIR /work
 RUN apk add --no-cache git && \
     apk add --no-cache gcc && \
-    apk add --no-cache make && \
     apk add --no-cache build-base
 RUN git clone https://github.com/Tiiffi/mcrcon.git
 WORKDIR /work/mcrcon
