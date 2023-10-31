@@ -18,5 +18,14 @@ services:
       - mcserver
     tty: true
 
+  webcon:
+    build: webcon
+    container_name: WebController
+    ports:
+      - 8000:80
+    volumes:
+      - ./webcon/app:/app
+    tty: true
+
 volumes:
   world_data:
