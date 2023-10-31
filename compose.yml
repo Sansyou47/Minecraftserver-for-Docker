@@ -9,7 +9,7 @@ services:
       - 25575:25575
     tty: true
     stdin_open: true
-    restart: always
+    restart: on-failure
   
   rconserver:
     build: rcon
