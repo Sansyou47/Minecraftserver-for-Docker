@@ -17,6 +17,6 @@ services:
     depends_on: 
       - mcserver
     tty: true
-        
+
 volumes:
   world_data:
