@@ -6,7 +6,7 @@ services:
       - world_data:/work
     ports:
       - 25565:25565
-      - 25575:25575
+      # - 25575:25575
     tty: true
     stdin_open: true
     restart: on-failure
@@ -21,6 +21,10 @@ services:
   webcon:
     build: webcon
     container_name: WebController
+    environment:
+      MCRCON_HOST: ${MCRCON_HOST}
+      MCRCON_PORT: ${MCRCON_PORT}
+      MCRCON_PASS: ${MCRCON_PASS}
     ports:
       - "8000:5000"
     volumes:
