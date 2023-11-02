@@ -12,19 +12,12 @@ WORKDIR /work
 COPY requirements.txt .
 COPY --from=builder /work/mcrcon .
 RUN apk add --no-cache make
-RUN apk add --no-cache gcc musl-dev
-RUN pip install --upgrade pip
+# RUN apk add --no-cache gcc musl-dev
+# RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN make install
-
-# FROM alpine
-# WORKDIR /work
-# COPY --from=builder /work/mcrcon .
-# COPY rcon.sh .
-# RUN apk add --no-cache make
-# RUN make install
-# RUN chmod 755 rcon.sh
-# CMD sh rcon.sh
+WORKDIR /app
+CMD [ "python", "main.py"]
 
 # alpine linuxベースで作成
 # build-baseはコンパイル後不要になるためマルチステージビルドで破棄する
