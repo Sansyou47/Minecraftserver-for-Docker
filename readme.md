@@ -8,7 +8,9 @@ https://github.com/Tiiffi/mcrcon.git
 ---
 ### 環境変数
 "compose.yml"ファイル直下に".env"ファイルを作成し、以下の通り環境変数を設定してください。  
+
 | 変数名 | 使用サービス | 目的 |
+|:---|:---|:---|:---|
 | MCRCON_HOST | webcon | MCRCONが接続先として使用するホスト名 |
 | MCRCON_PORT | webcon | MCRCONが接続するポート番号 |
 | MCRCON_PASS | webcon | MCRCONがログインに使用するパス |
