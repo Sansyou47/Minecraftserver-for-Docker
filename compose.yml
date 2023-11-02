@@ -6,7 +6,6 @@ services:
       - world_data:/work
     ports:
       - 25565:25565
-      # - 25575:25575
     tty: true
     stdin_open: true
     restart: on-failure
@@ -28,7 +27,7 @@ services:
     ports:
       - "8000:5000"
     volumes:
-      - ./app:/app
+      - ./webcon/app:/app
     tty: true
     depends_on:
       - mcserver
