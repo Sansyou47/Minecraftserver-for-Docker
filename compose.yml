@@ -11,21 +11,23 @@ services:
     stdin_open: true
     restart: on-failure
   
-  rconserver:
-    build: rcon
-    container_name: ServerController
-    depends_on: 
-      - mcserver
-    tty: true
+  # rconserver:
+  #   build: rcon
+  #   container_name: ServerController
+  #   depends_on: 
+  #     - mcserver
+  #   tty: true
 
   webcon:
     build: webcon
     container_name: WebController
     ports:
-      - 8000:80
+      - "8000:5000"
     volumes:
-      - ./webcon/app:/app
+      - ./app:/app
     tty: true
+    depends_on:
+      - mcserver
 
 volumes:
   world_data:
