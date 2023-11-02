@@ -1,0 +1,42 @@
+services:
+  mcserver:
+    build: mcs
+    container_name: MinecraftServer_v1.20.2
+    volumes:
+      - world_data:/work
+    ports:
+      - 25565:25565
+    tty: true
+    stdin_open: true
+    restart: on-failure
+  
+  db:
+    build: db
+    container_name: MCS_Database
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${default_timezone}
+    volumes:
+      - mcs-db_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d/
+
+  webcon:
+    build: webcon
+    container_name: MCS_Controller
+    environment:
+      MCRCON_HOST: ${MCRCON_HOST}
+      MCRCON_PORT: ${MCRCON_PORT}
+      MCRCON_PASS: ${MCRCON_PASS}
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./webcon/app:/app
+    tty: true
+    depends_on:
+      - mcserver
+
+volumes:
+  world_data:
