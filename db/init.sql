@@ -4,7 +4,6 @@ create table command(
     level   int not null
 )
 
-
 drop table if exists target;
 
 create table target(
