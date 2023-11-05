@@ -12,8 +12,6 @@ WORKDIR /work
 COPY requirements.txt .
 COPY --from=builder /work/mcrcon .
 RUN apk add --no-cache make
-# RUN apk add --no-cache gcc musl-dev
-# RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN make install
 WORKDIR /app
@@ -22,4 +20,3 @@ CMD [ "python", "main.py"]
 # alpine linuxベースで作成
 # build-baseはコンパイル後不要になるためマルチステージビルドで破棄する
 # イメージサイズ ubuntu:362.35MB >>>>> alpine:7.8MB まで縮小に成功
-# シェルスクリプトの実行は任意のためコメントアウトしている
