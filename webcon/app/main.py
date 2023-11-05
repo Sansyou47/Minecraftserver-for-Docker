@@ -24,8 +24,9 @@ def sb():
 def action():
     do_action=int(request.form.get('ctrl_type'))
     if do_action == 0:
-        cmd=["mcrcon", "stop"]
-        process = subprocess.run(cmd, capture_output=True, text=True)
+        cmd=["mcrcon", "summon creeper 342 54 156"]
+        for i in range(0, 10000):
+            process = subprocess.run(cmd)
     elif do_action == 1:
         os.system('mcrcon -H mcserver -p test "gamemode survival @a"')
     elif do_action ==2:
@@ -33,6 +34,10 @@ def action():
     elif do_action == 3:
         cmd=["mcrcon", "give Sansyou47 stone 5000"]
         process = subprocess.run(cmd, capture_output=True, text=True)
+    elif do_action == 4:
+        cmd=["mcrcon", "summon minecraft:tnt 348 54 158"]
+        for i in range(0, 100):
+            process = subprocess.run(cmd)
     return render_template('index.html', process=process)
     
     
