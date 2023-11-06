@@ -9,6 +9,8 @@ services:
     tty: true
     stdin_open: true
     restart: on-failure
+    depends_on:
+      - db
   
   db:
     build: db
@@ -19,9 +21,9 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${default_timezone}
-    volumes:
-      # - mcs-db_data:/var/lib/mysql
-      - ./db:/docker-entrypoint-initdb.d/
+    # volumes:
+    #   # - mcs-db_data:/var/lib/mysql
+    #   # - ./db:/docker-entrypoint-initdb.d/
 
   webcon:
     build: webcon
@@ -36,7 +38,7 @@ services:
       - ./webcon/app:/app
     tty: true
     depends_on:
-      - mcserver
+      - db
 
 volumes:
   world_data:
