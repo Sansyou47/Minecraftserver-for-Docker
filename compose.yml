@@ -8,6 +8,9 @@ services:
       - 25565:25565
     tty: true
     stdin_open: true
+    environment:
+      MCRCON_PORT: ${MCRCON_PORT}
+      MCRCON_PASS: ${MCRCON_PASS}
     restart: on-failure
     depends_on:
       - db
