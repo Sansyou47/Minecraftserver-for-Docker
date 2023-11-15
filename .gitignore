@@ -1,1 +1,4 @@
 mcs/options/
+.env
+gmailtest.py
+test.py/
