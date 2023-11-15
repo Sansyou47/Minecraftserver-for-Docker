@@ -24,9 +24,9 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${default_timezone}
-    # volumes:
-    #   # - mcs-db_data:/var/lib/mysql
-    #   # - ./db:/docker-entrypoint-initdb.d/
+    volumes:
+      - mcsdb_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d/
 
   webcon:
     build: webcon
@@ -45,3 +45,4 @@ services:
 
 volumes:
   world_data:
+  mcsdb_data:
