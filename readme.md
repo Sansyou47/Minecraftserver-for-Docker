@@ -1,6 +1,6 @@
 # Minecraft for Docker
 マイクラサーバーを簡単に建てるために作成しました。
-### RCON
+### RCON 
 サーバーを遠隔で操作するツールとして[RCON](https://github.com/Tiiffi/mcrcon.git)が使用できます。  
 詳しい使い方は上記リンクGithubリポジトリを参照してください。  
 ---
