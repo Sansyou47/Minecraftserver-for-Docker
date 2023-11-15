@@ -1,11 +1,11 @@
 # Minecraft for Docker
 マイクラサーバーを簡単に建てるために作成しました。
-### RCON 
-サーバーを遠隔で操作するツールとして[RCON](https://github.com/Tiiffi/mcrcon.git)が使用できます。  
+### RCON
+ サーバーを遠隔で操作するツールとして[RCON](https://github.com/Tiiffi/mcrcon.git)が使用できます。  
 詳しい使い方は上記リンクGithubリポジトリを参照してください。  
 ---
 ### 環境変数
-"compose.yml"ファイル直下に".env"ファイルを作成し、以下の通り環境変数を設定してください。  
+ compose.ymlファイル直下に.envファイルを作成し、以下の通り環境変数を設定してください。  
 | 変数名 | 使用サービス | 目的 |
 |:---|:---|:---|:---|
 | MCRCON_HOST | webcon | MCRCONが接続先として使用するホスト名 |
