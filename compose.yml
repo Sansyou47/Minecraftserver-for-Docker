@@ -16,7 +16,7 @@ services:
       - db
   
   db:
-    build: db
+    image: mysql
     container_name: MCS_Database
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
