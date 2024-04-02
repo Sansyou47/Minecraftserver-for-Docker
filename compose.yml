@@ -14,34 +14,6 @@ services:
     restart: on-failure
     depends_on:
       - db
-  
-  db:
-    image: mysql
-    container_name: MCS_Database
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      TZ: ${default_timezone}
-    volumes:
-      - mcsdb_data:/var/lib/mysql
-      - ./db:/docker-entrypoint-initdb.d/
-
-  webcon:
-    build: webcon
-    container_name: MCS_Controller
-    environment:
-      MCRCON_HOST: ${MCRCON_HOST}
-      MCRCON_PORT: ${MCRCON_PORT}
-      MCRCON_PASS: ${MCRCON_PASS}
-    ports:
-      - "8000:5000"
-    volumes:
-      - ./webcon/app:/app
-    tty: true
-    depends_on:
-      - db
 
 volumes:
   world_data:
