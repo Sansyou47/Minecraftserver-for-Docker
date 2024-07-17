@@ -1,8 +1,8 @@
 FROM alpine as builder
 WORKDIR /work
 RUN apk add --no-cache wget && \
-    # Minecraft version 1.20.4
-    wget https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar
+    # Minecraft version 1.21
+    wget https://piston-data.mojang.com/v1/objects/450698d1863ab5180c25d7c804ef0fe6369dd1ba/server.jar
 RUN echo eula=true > eula.txt
 
 FROM alpine
