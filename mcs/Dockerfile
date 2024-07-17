@@ -8,5 +8,5 @@ RUN echo eula=true > eula.txt
 FROM alpine
 WORKDIR /work
 COPY --from=builder ./work .
-RUN apk add --no-cache openjdk17
+RUN apk add --no-cache openjdk21
 CMD java -Xmx1024M -Xms1024M -jar server.jar
