@@ -1,4 +1,4 @@
-mcs/options/
 .env
-gmailtest.py
-test.py/
+config/
+mods/
+world/
