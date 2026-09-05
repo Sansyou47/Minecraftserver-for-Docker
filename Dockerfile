@@ -15,7 +15,7 @@
 FROM alpine AS builder
 WORKDIR /work
 ARG MC_VER=1.20.1
-ARG FORGE_VER=47.3.0
+ARG FORGE_VER=47.4.23
 RUN apk add --no-cache openjdk17-jre curl bash && \
     curl -sSL -o installer.jar "https://maven.minecraftforge.net/net/minecraftforge/forge/${MC_VER}-${FORGE_VER}/forge-${MC_VER}-${FORGE_VER}-installer.jar" && \
     java -jar installer.jar --installServer && \
