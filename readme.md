@@ -4,8 +4,8 @@
 ## サーバーバージョンの指定
 Dockerfile内の以下の記述をそれぞれのバージョンで指定する。
 {code}
-ARG MC_VER=1.20.1       # マインクラフトのクライアントバージョン
-ARG FORGE_VER=47.4.23   # Forgeのバージョン
+ENV MC_VERSION=1.20.1
+ENV FORGE_VERSION=47.4.23
 {/code}
 ## MODの追加方法
 mods/ディレクトリへMODのjarファイルを配置してください。
